@@ -12,4 +12,4 @@ A library for the http://ur1.ca url shortening service::
 
 Supports Python 2.7, 3.2+
 
-Released into the public domain.
+Licensed under CC-0.

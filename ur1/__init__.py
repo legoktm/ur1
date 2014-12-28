@@ -6,10 +6,13 @@ import sys
 if sys.version[0] == '3':
     from urllib.parse import urlencode
     from urllib.request import urlopen
+    from functools import lru_cache
 else:
     from urllib import urlencode, urlopen
+    from functools32 import lru_cache
 
 
+@lru_cache(maxsize=300)
 def shorten(long_url):
     """
     Shorten a long url into a shorter one

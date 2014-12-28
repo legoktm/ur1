@@ -13,6 +13,8 @@ class Ur1Test(unittest.TestCase):
         }
         for long_url, short_url in data.items():
             self.assertEqual(short_url, ur1.shorten(long_url))
+        ur1.shorten('https://en.wikipedia.org')
+        self.assertEqual(1, ur1.shorten.cache_info().hits)
 
 
 if __name__ == '__main__':

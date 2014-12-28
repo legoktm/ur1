@@ -1,8 +1,13 @@
 #!/usr/bin/env python
 
 import re
-import urllib.parse
-import urllib.request
+import sys
+
+if sys.version[0] == '3':
+    from urllib.parse import urlencode
+    from urllib.request import urlopen
+else:
+    from urllib import urlencode, urlopen
 
 
 def shorten(long_url):
@@ -11,11 +16,11 @@ def shorten(long_url):
     :param long_url: Your long url
     :return: A short ur1.ca one
     """
-    data = urllib.parse.urlencode({
+    data = urlencode({
         'submit': 'Make it an ur1!',
         'longurl': long_url,
     }).encode()
-    req = urllib.request.urlopen('http://ur1.ca/', data=data)
+    req = urlopen('http://ur1.ca/', data=data)
     out = req.read().decode()
     req.close()
     match = re.search(

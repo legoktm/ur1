@@ -10,4 +10,6 @@ A library for the http://ur1.ca url shortening service::
     >>> print(ur1.shorten('http://www.google.com'))
     http://ur1.ca/1n
 
+Supports Python 2.7, 3.2+
+
 Released into the public domain.
